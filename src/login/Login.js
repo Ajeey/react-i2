@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./Login.css";
 import axios from 'axios';
 import Spinner from '../spinner/Spinner.js';
+import Strings from '../strings/strings.js';
 
 class Login extends Component {
 
@@ -37,7 +38,7 @@ class Login extends Component {
 
   showError() {
     if(this.state.isError) {
-      return "Email or password incorrect! Please try again."
+      return Strings.loginErrorMsg;
     }
   }
 
@@ -48,7 +49,7 @@ class Login extends Component {
     this.setLoadingState(true);
     self.setLoginError(false);
 
-    axios.post("https://i2x-challenge.herokuapp.com/core/login/", {
+    axios.post(Strings.loginUrl, {
       email: this.state.email,
       password: this.state.password
     })
@@ -80,7 +81,7 @@ class Login extends Component {
   }
 
   saveTokenInLS(token) {
-    window.localStorage.setItem("i2x_auth_token", token);
+    window.localStorage.setItem(Strings.localStorageKey, token);
   }
 
   render() {

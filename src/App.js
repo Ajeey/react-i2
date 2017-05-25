@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
-// import Footer from './footer/Footer.js';
 import Header from './header/Header.js';
 import Login from './login/Login.js';
 import List from './list/List.js';
+import Strings from './strings/strings.js';
 
 class App extends Component {
   constructor(props) {
@@ -13,7 +12,7 @@ class App extends Component {
   }
 
   checkIfLoggedIn() {
-    let token = window.localStorage.getItem("i2x_auth_token");
+    let token = window.localStorage.getItem(Strings.localStorageKey);
     if(token) {
       this.state = {
         isLoggedIn: true,
@@ -44,7 +43,7 @@ class App extends Component {
   }
 
   logoutUser() {
-    localStorage.removeItem("i2x_auth_token");
+    localStorage.removeItem(Strings.localStorageKey);
     this.setState({
       token: null,
       isLoggedIn: false

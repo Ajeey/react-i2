@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "./List.css";
 import axios from 'axios';
 import Recording from '../recording/Recording.js';
+import Strings from '../strings/strings.js';
 
 class List extends Component {
 
@@ -16,7 +17,7 @@ class List extends Component {
       headers: {'Authorization': 'JWT ' + this.props.token}
     };
 
-    axios.get('https://i2x-challenge.herokuapp.com/ai/recording/list/', config)
+    axios.get(Strings.recordingsUrl, config)
       .then(function (response) {
         console.log(response);
         self.setState({
