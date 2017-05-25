@@ -5,7 +5,7 @@
 - Go to -> http://localhost:3000/
 
 ## Deploying on Heroku
-
+- git clone this project and cd into the project
 - heroku create -b https://github.com/mars/create-react-app-buildpack.git
 - git push heroku master 
 - heroku open
