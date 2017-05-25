@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
 import "./Recording.css";
 import StarRatingComponent from 'react-star-rating-component';
+import Moment from 'react-moment';
 
 class Recording extends Component {
-
-
-	splitFinalScript(script) {
-		console.log(script);
-		return script;
-	}
 
   render() {
     return (
       <div className="recording-wrapper clearfix">
       	<div className="left-block">
-      		<div className="script-text">{	this.splitFinalScript(this.props.data.final_script) }</div>
+      		<div className="script-text">{this.props.data.final_script}</div>
       	</div>
       	<div className="right-block">
           		<div className="item audio-player">
@@ -33,8 +28,8 @@ class Recording extends Component {
             />
           </div>
 
-      		<div className="item duration">Duration -  <strong>{ Math.floor(this.props.data.duration/60) } </strong> minutes</div>
-      		<div className="item created">Created - { this.props.data.created }</div>
+      		<div className="item duration"><strong> Duration -  { Math.floor(this.props.data.duration/60) } minutes </strong></div>
+      		<div className="item created"><strong> Created - <Moment format="DD MMM YYYY" date={new Date(this.props.data.created)} /> </strong></div>
       		
       	</div>
       	
