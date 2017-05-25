@@ -7,7 +7,12 @@ class Login extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {"email": '', "password": '', "isLoading": false};
+    this.state = {
+      "email": '', 
+      "password": '', 
+      "isLoading": false,
+      "isError": false
+    };
   }
 
   handleEmailChange(e) {
@@ -30,15 +35,22 @@ class Login extends Component {
     }
   }
 
+  showError() {
+    if(this.state.isError) {
+      return "Email or password incorrect! Please try again."
+    }
+  }
+
   handleLogin(e) {
     e.preventDefault();
     var self = this;
 
     this.setLoadingState(true);
+    self.setLoginError(false);
 
     axios.post("https://i2x-challenge.herokuapp.com/core/login/", {
-      email: "challenge@i2x.ai" || this.state.email,
-      password: "pass123" || this.state.password
+      email: this.state.email,
+      password: this.state.password
     })
     .then(function (response) {
       self.setLoadingState(false);
@@ -49,8 +61,15 @@ class Login extends Component {
     })
     .catch(function (error) {
       self.setLoadingState(false);
+      self.setLoginError(true);
       console.error(error);
     });
+  }
+
+  setLoginError(value) {
+    this.setState({
+      "isError": value
+    })
   }
 
   updateAppState(token) {
@@ -74,6 +93,7 @@ class Login extends Component {
             <button className="login-button" type="submit">Login</button>
             { this.showLoadingSpinner() }
           </div>
+          <p className="error-msg" >{ this.showError() }</p>
         </form>
       </div>
     );

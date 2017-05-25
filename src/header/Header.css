@@ -1,12 +1,13 @@
 .header {
 	background-color: #292b2c;
-	height: 40px;
+	height: 60px;
 	color: white;
-	padding: 10px 20px 0 20px;
+	padding: 0 20px;
 }
 
 .logo {
 	float: left;
+	padding: 20px 20px 0 20px;
 }
 
 .login-wrapper {
@@ -20,9 +21,9 @@
 	color: #fff;
 	cursor: pointer;
 	font-size: 12px;
-	height: 20px;
-	outline: none;
-	padding: 0px 9px;
+	height: 30px;
+    outline: none;
+    padding: 0px 15px;
 	width: 100%;
-	transition: box-shadow 0.3s linear;
+	margin-top: 15px;
 }

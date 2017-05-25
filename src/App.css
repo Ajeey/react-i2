@@ -1,28 +1,31 @@
 * {
   box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-intro {
-  font-size: large;
+body {
+  background: url("images/subtle_white_feathers.png");
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+.clearfix:after { 
+  content: "."; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden; 
+}
+.clearfix { 
+  display: inline-block;  
+}
+* html .clearfix {  
+  height: 1%;  
+} /* Hides from IE-mac \*/
+.clearfix {  
+  display: block;  
 }
