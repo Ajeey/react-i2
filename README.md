@@ -1,5 +1,5 @@
 ## Running Locally
-
+- Install node > 6 and latest npm
 - npm install
 - npm run start
 - Go to -> http://localhost:3000/
